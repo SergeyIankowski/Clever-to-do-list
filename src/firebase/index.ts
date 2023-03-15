@@ -5,7 +5,7 @@ import registerWithEmailAndPassword from "./registerWithEmailAndPassword";
 import sendPasswordReset from "./sendPasswordReset";
 import signInWithGoogle from "./signInWithGoogle";
 
-export default {
+export {
   auth,
   db,
   logInWithEmailAndPassword,

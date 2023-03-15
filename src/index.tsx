@@ -2,7 +2,7 @@ import { createContext } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./AppRouter";
-import { auth, db } from "./firebase/firebase";
+import { auth, db } from "./firebase";
 
 type ContextType = {
   firebase: typeof db;
