@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const Dotenv = require('dotenv-webpack');
+const Dotenv = require("dotenv-webpack");
 const { NetlifyPlugin } = require("netlify-webpack-plugin");
 
 const isDev = process.env.NODE_ENV == "development";
