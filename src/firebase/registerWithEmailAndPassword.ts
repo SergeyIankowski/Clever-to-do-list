@@ -6,7 +6,7 @@ const registerWithEmailAndPassword = async (
   name: string,
   email: string,
   password: string,
-  callbackWithError: () => void,
+  callbackWithError: (str: string) => void,
 ) => {
   try {
     const response = await createUserWithEmailAndPassword(
@@ -22,7 +22,11 @@ const registerWithEmailAndPassword = async (
       email,
     });
   } catch (e) {
-    callbackWithError();
+    if (e instanceof Error) {
+      if (e.message.includes("auth/weak-password")) {
+        callbackWithError("Password should be at least 6 characters");
+      }
+    }
   }
 };
 
