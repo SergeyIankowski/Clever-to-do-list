@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./AppRouter";
 import { auth, db } from "./firebase";
 import FirebaseContext from "./models/firebaseContext";
+import "./sass/main.scss";
 
 const root = createRoot(document.getElementById("root") as HTMLElement);
 
