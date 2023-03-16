@@ -11,10 +11,10 @@ const logInWithEmailAndPassword = async (
   } catch (e) {
     if (e instanceof Error) {
       if (e.message.includes("auth/wrong-password")) {
-        callbackWithError("wrong password");
+        callbackWithError("Wrong name or password");
       }
       if (e.message.includes("auth/too-many-requests")) {
-        callbackWithError("too many wrong password requests");
+        callbackWithError("Too many wrong password requests");
       }
     } else {
       throw new Error(`Unexpected error in logInWithEmailAndPassword ${e}`);
