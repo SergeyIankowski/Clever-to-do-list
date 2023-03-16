@@ -6,6 +6,7 @@ import { logOut } from "../../firebase";
 import ContextType from "../../models/Context.type";
 import FirebaseContext from "../../models/firebaseContext";
 import Pages from "../../models/Pages";
+import Wrapper from "../Wrapper/Wrapper";
 import classes from "./header.module.scss";
 
 const Header = () => {
@@ -34,16 +35,18 @@ const Header = () => {
   useEffect(() => {
     if (loading) return;
     if (!user) navigate(Pages.login);
-    fetchUserName();
+    if (user) fetchUserName();
   }, [user, loading]);
 
   return (
-    <header className={classes.header}>
-      <p className={classes.logoutName}>{name}</p>
-      <button type="button" className={classes.logOutButton} onClick={logOut}>
-        LogOut
-      </button>
-    </header>
+    <Wrapper>
+      <header className={classes.header}>
+        <p className={classes.logoutName}>{name}</p>
+        <button type="button" className={classes.logOutButton} onClick={logOut}>
+          LogOut
+        </button>
+      </header>
+    </Wrapper>
   );
 };
 

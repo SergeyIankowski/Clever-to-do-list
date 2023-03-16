@@ -8,6 +8,7 @@ import ContextType from "../../models/Context.type";
 import Pages from "../../models/Pages";
 import classes from "./register.module.scss";
 import FirebaseContext from "../../models/firebaseContext";
+import Wrapper from "../Wrapper/Wrapper";
 
 const Register = () => {
   const { auth } = useContext(FirebaseContext) as ContextType;
@@ -18,14 +19,14 @@ const Register = () => {
   const navigate = useNavigate();
 
   const notifyName = () => toast("Please enter your name");
-  const notifyAlreadyExist = () => toast("This user already exist");
+  const notifyRegistratonFails = (str: string) => toast(str);
 
   const register = () => {
     if (!name) {
       notifyName();
       return;
     }
-    registerWithEmailAndPassword(name, email, password, notifyAlreadyExist);
+    registerWithEmailAndPassword(name, email, password, notifyRegistratonFails);
   };
 
   useEffect(() => {
@@ -38,48 +39,50 @@ const Register = () => {
   }, [user, loading]);
   return (
     <div className={classes.register}>
-      <ToastContainer />
-      <div className={classes.registerContainer}>
-        <input
-          type="text"
-          className={classes.registerTextBox}
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Name"
-        />
-        <input
-          type="text"
-          className={classes.registerTextBox}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
-        />
-        <input
-          type="password"
-          className={classes.registerTextBox}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
-        <button
-          className={classes.registerButton}
-          type="submit"
-          onClick={register}
-        >
-          Register
-        </button>
-        <button
-          className={classes.registerButton}
-          type="button"
-          onClick={signInWithGoogle}
-        >
-          Register with Google
-        </button>
-        <div className={classes.registerText}>
-          Have you already account? Go To <Link to={Pages.login}>LogIn</Link>{" "}
-          page
+      <Wrapper>
+        <ToastContainer />
+        <div className={classes.registerContainer}>
+          <input
+            type="text"
+            className={classes.registerTextBox}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Name"
+          />
+          <input
+            type="text"
+            className={classes.registerTextBox}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="E-mail Address"
+          />
+          <input
+            type="password"
+            className={classes.registerTextBox}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+          />
+          <button
+            className={classes.registerButton}
+            type="submit"
+            onClick={register}
+          >
+            Register
+          </button>
+          <button
+            className={classes.registerButton}
+            type="button"
+            onClick={signInWithGoogle}
+          >
+            Register with Google
+          </button>
+          <div className={classes.registerText}>
+            Have you already account? Go To <Link to={Pages.login}>LogIn</Link>{" "}
+            page
+          </div>
         </div>
-      </div>
+      </Wrapper>
     </div>
   );
 };

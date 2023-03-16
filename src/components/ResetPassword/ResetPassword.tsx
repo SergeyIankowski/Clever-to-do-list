@@ -1,51 +1,44 @@
-import { useContext, useEffect, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate, Link } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 import { sendPasswordReset } from "../../firebase";
-import ContextType from "../../models/Context.type";
-import FirebaseContext from "../../models/firebaseContext";
+import "react-toastify/dist/ReactToastify.css";
 import Pages from "../../models/Pages";
+import Wrapper from "../Wrapper/Wrapper";
 import classes from "./resetPassword.module.scss";
 
 const ResetPassword = () => {
-  const { auth } = useContext(FirebaseContext) as ContextType;
   const [email, setEmail] = useState("");
-  const [user, loading] = useAuthState(auth);
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (loading) {
-      return;
-    }
-    if (user) {
-      navigate(Pages.login);
-    }
-  });
+  const notifyMessage = (str: string) => toast(str);
+  const clickHandler = async () => {
+    sendPasswordReset(email, notifyMessage);
+  };
 
   return (
     <div className={classes.resetPassword}>
-      <div className={classes.resetPasswordContainer}>
-        <input
-          type="text"
-          className={classes.resetPasswordTextBox}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
-        />
-        <button
-          className={classes.resetPasswordButton}
-          type="button"
-          onClick={() => {
-            sendPasswordReset(email);
-          }}
-        >
-          Send link to reset Password
-        </button>
-        <div className={classes.resetPasswordText}>
-          If you're not registered? Go to{" "}
-          <Link to={Pages.register}>Registration</Link> page
+      <Wrapper>
+        <ToastContainer />
+        <div className={classes.resetPasswordContainer}>
+          <input
+            type="text"
+            className={classes.resetPasswordTextBox}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="E-mail Address"
+          />
+          <button
+            className={classes.resetPasswordButton}
+            type="button"
+            onClick={clickHandler}
+          >
+            Send link to reset Password
+          </button>
+          <div className={classes.resetPasswordText}>
+            Back to <Link to={Pages.login}>Login</Link> page
+          </div>
         </div>
-      </div>
+      </Wrapper>
     </div>
   );
 };
