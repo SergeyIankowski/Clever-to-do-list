@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const Dotenv = require('dotenv-webpack');
+const Dotenv = require("dotenv-webpack");
 const { NetlifyPlugin } = require("netlify-webpack-plugin");
 
 const isDev = process.env.NODE_ENV == "development";
@@ -70,8 +70,8 @@ const config = {
     ],
   },
   performance: {
-    maxAssetSize: 500000,
-    maxEntrypointSize: 500000,
+    maxAssetSize: 1000000,
+    maxEntrypointSize: 1000000,
   },
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", "..."],
