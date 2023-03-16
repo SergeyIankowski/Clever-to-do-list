@@ -70,8 +70,8 @@ const config = {
     ],
   },
   performance: {
-    maxAssetSize: 500000,
-    maxEntrypointSize: 500000,
+    maxAssetSize: 1000000,
+    maxEntrypointSize: 1000000,
   },
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", "..."],
