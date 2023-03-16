@@ -1,7 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate, Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 import { logInWithEmailAndPassword, signInWithGoogle } from "../../firebase";
+import "react-toastify/dist/ReactToastify.css";
 import ContextType from "../../models/Context.type";
 import Pages from "../../models/Pages";
 import classes from "./login.module.scss";
@@ -13,6 +15,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
+  const notifyMessage = (str: string) => toast(str);
 
   useEffect(() => {
     if (loading) {
@@ -25,6 +28,7 @@ const Login = () => {
 
   return (
     <div className={classes.login}>
+      <ToastContainer />
       <div className={classes.loginContainer}>
         <input
           type="text"
@@ -38,13 +42,13 @@ const Login = () => {
           className={classes.loginTextBox}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="E-mail Address"
+          placeholder="Password"
         />
         <button
           className={classes.loginButton}
           type="submit"
           onClick={() => {
-            logInWithEmailAndPassword(email, password);
+            logInWithEmailAndPassword(email, password, notifyMessage);
           }}
         >
           Login

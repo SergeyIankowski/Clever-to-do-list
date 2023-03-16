@@ -59,7 +59,7 @@ const Register = () => {
           className={classes.registerTextBox}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="E-mail Address"
+          placeholder="Password"
         />
         <button
           className={classes.registerButton}

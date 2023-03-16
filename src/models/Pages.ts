@@ -1,4 +1,5 @@
 enum Pages {
+  main = "/",
   login = "/login",
   notfound = "/*",
   todoBoard = "/todoBoard",
