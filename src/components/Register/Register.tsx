@@ -17,14 +17,15 @@ const Register = () => {
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
-  const notify = () => toast("Please enter your name");
+  const notifyName = () => toast("Please enter your name");
+  const notifyAlreadyExist = () => toast("This user already exist");
 
   const register = () => {
     if (!name) {
-      notify();
+      notifyName();
       return;
     }
-    registerWithEmailAndPassword(name, email, password);
+    registerWithEmailAndPassword(name, email, password, notifyAlreadyExist);
   };
 
   useEffect(() => {

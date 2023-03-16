@@ -6,6 +6,7 @@ const registerWithEmailAndPassword = async (
   name: string,
   email: string,
   password: string,
+  callbackWithError: () => void,
 ) => {
   try {
     const response = await createUserWithEmailAndPassword(
@@ -21,12 +22,7 @@ const registerWithEmailAndPassword = async (
       email,
     });
   } catch (e) {
-    if (e instanceof Error) {
-      throw new Error(
-        `registerWithEmailAndPassword method has error witch code ${e.message}`,
-      );
-    }
-    throw new Error(`Unexpected error in registerWithEmailAndPassword ${e}`);
+    callbackWithError();
   }
 };
 

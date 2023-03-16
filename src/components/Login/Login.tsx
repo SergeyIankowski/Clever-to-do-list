@@ -58,7 +58,11 @@ const Login = () => {
         </button>
         <div className={classes.loginText}>
           If you're not registered? Go to{" "}
-          <Link to={Pages.register}>Registration</Link> page
+          <Link to={Pages.register}>Registration</Link> page.
+        </div>
+        <div className={classes.loginText}>
+          If you've forgotten your password? <Link to={Pages.reset}>Reset</Link>{" "}
+          it.
         </div>
       </div>
     </div>
