@@ -1,9 +1,10 @@
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import validateSignInWithGoogleError from "../utils/validationErrors/validateSignInWithGoogleError";
 import { auth, db } from "./firebase";
 
 const googleProvider = new GoogleAuthProvider();
-const signInWithGoogle = async () => {
+const signInWithGoogle = async (notifyCallback: (str: string) => void) => {
   try {
     const response = await signInWithPopup(auth, googleProvider);
     const { user } = response;
@@ -20,11 +21,8 @@ const signInWithGoogle = async () => {
     }
   } catch (e) {
     if (e instanceof Error) {
-      throw new Error(
-        `signInWithGoogle method has error witch code ${e.message}`,
-      );
+      validateSignInWithGoogleError(e, notifyCallback);
     }
-    throw new Error(`Unexpected error in signInWithGoogle ${e}`);
   }
 };
 

@@ -1,12 +1,13 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
+import validateRegisterWithEmailAndPassword from "../utils/validationErrors/validateRegisterWithEmailAndPassword";
 import { auth, db } from "./firebase";
 
 const registerWithEmailAndPassword = async (
   name: string,
   email: string,
   password: string,
-  callbackWithError: (str: string) => void,
+  notifyCallback: (str: string) => void,
 ) => {
   try {
     const response = await createUserWithEmailAndPassword(
@@ -23,9 +24,7 @@ const registerWithEmailAndPassword = async (
     });
   } catch (e) {
     if (e instanceof Error) {
-      if (e.message.includes("auth/weak-password")) {
-        callbackWithError("Password should be at least 6 characters");
-      }
+      validateRegisterWithEmailAndPassword(e, notifyCallback);
     }
   }
 };

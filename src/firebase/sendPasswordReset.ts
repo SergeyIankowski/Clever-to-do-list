@@ -1,4 +1,5 @@
 import { sendPasswordResetEmail } from "firebase/auth";
+import validateSendPasswordResetError from "../utils/validationErrors/validateSendPasswordResetError";
 import { auth } from "./firebase";
 
 const sendPasswordReset = async (
@@ -10,9 +11,7 @@ const sendPasswordReset = async (
     notifyCallback("The link to change the password was sent");
   } catch (e) {
     if (e instanceof Error) {
-      if (e.message.includes("auth/user-not-found")) {
-        notifyCallback("User not found");
-      }
+      validateSendPasswordResetError(e, notifyCallback);
     }
   }
 };

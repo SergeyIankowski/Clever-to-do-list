@@ -50,7 +50,11 @@ const Login = () => {
             className={classes.loginButton}
             type="submit"
             onClick={() => {
-              logInWithEmailAndPassword(email, password, notifyMessage);
+              logInWithEmailAndPassword(
+                email.trim(),
+                password.trim(),
+                notifyMessage,
+              );
             }}
           >
             Login
@@ -58,7 +62,9 @@ const Login = () => {
           <button
             className={classes.loginButton}
             type="button"
-            onClick={signInWithGoogle}
+            onClick={() => {
+              signInWithGoogle(notifyMessage);
+            }}
           >
             Login with Google
           </button>

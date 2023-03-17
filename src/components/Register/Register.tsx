@@ -26,7 +26,12 @@ const Register = () => {
       notifyName();
       return;
     }
-    registerWithEmailAndPassword(name, email, password, notifyRegistratonFails);
+    registerWithEmailAndPassword(
+      name,
+      email.trim(),
+      password,
+      notifyRegistratonFails,
+    );
   };
 
   useEffect(() => {
@@ -73,7 +78,9 @@ const Register = () => {
           <button
             className={classes.registerButton}
             type="button"
-            onClick={signInWithGoogle}
+            onClick={() => {
+              signInWithGoogle(notifyRegistratonFails);
+            }}
           >
             Register with Google
           </button>

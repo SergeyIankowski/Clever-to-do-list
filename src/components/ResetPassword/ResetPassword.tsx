@@ -12,7 +12,7 @@ const ResetPassword = () => {
 
   const notifyMessage = (str: string) => toast(str);
   const clickHandler = async () => {
-    sendPasswordReset(email, notifyMessage);
+    sendPasswordReset(email.trim(), notifyMessage);
   };
 
   return (
