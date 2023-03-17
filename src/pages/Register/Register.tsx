@@ -8,7 +8,7 @@ import ContextType from "../../models/Context.type";
 import Pages from "../../models/Pages";
 import classes from "./register.module.scss";
 import FirebaseContext from "../../models/firebaseContext";
-import Wrapper from "../Wrapper/Wrapper";
+import Wrapper from "../../components/Wrapper/Wrapper";
 
 const Register = () => {
   const { auth } = useContext(FirebaseContext) as ContextType;

@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Route, Routes } from "react-router-dom";
-import Login from "./components/Login/Login";
-import Page404 from "./components/Page404/Page404";
-import Register from "./components/Register/Register";
-import ResetPassword from "./components/ResetPassword/ResetPassword";
-import TodoBoard from "./components/todoBoard/TodoBoard";
+import Login from "./pages/Login/Login";
+import Page404 from "./pages/Page404/Page404";
+import Register from "./pages/Register/Register";
+import ResetPassword from "./pages/ResetPassword/ResetPassword";
+import TodoBoard from "./pages/todoBoard/TodoBoard";
 import ContextType from "./models/Context.type";
 import FirebaseContext from "./models/firebaseContext";
 import Pages from "./models/Pages";

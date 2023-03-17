@@ -8,7 +8,7 @@ import ContextType from "../../models/Context.type";
 import Pages from "../../models/Pages";
 import classes from "./login.module.scss";
 import FirebaseContext from "../../models/firebaseContext";
-import Wrapper from "../Wrapper/Wrapper";
+import Wrapper from "../../components/Wrapper/Wrapper";
 
 const Login = () => {
   const { auth } = useContext(FirebaseContext) as ContextType;
