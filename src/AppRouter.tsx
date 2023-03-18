@@ -9,6 +9,7 @@ import TodoBoard from "./pages/todoBoard/TodoBoard";
 import ContextType from "./models/Context.type";
 import FirebaseContext from "./models/firebaseContext";
 import Pages from "./models/Pages";
+import ConcreteTodo from "./pages/ConcreteTodo/ConcreteTodo";
 
 const AppRouter = () => {
   const { auth } = useContext(FirebaseContext) as ContextType;
@@ -21,6 +22,16 @@ const AppRouter = () => {
       <Route path={Pages.register} element={<Register />} />
       <Route path={Pages.reset} element={<ResetPassword />} />
       <Route path={Pages.todoBoard} element={<TodoBoard />} />
+      <Route
+        path={Pages.todoPage}
+        element={
+          <ConcreteTodo
+            title="Todo title"
+            description="Some text"
+            done={false}
+          />
+        }
+      />
     </Routes>
   );
 };
