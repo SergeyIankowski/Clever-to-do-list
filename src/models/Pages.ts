@@ -2,9 +2,10 @@ enum Pages {
   main = "/",
   login = "/login",
   notfound = "/*",
-  todoBoard = "/todoBoard",
+  todoBoard = "/todo-board",
   register = "/register",
   reset = "/reset",
+  todoPage = "/todo-edit",
 }
 
 export default Pages;
