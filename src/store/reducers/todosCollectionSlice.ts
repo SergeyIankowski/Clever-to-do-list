@@ -1,35 +1,38 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import Todo from "../../models/TodoInterface";
+import TodosCollectionStore from "../../models/TodosCollectionStore";
 
-type TodosCollection = { [index: string]: Todo[] };
-
-const initialState: TodosCollection = {};
+const initialState: TodosCollectionStore = { todosCollection: {} };
 
 export const todosCollectionSlice = createSlice({
   name: "todosCollection",
   initialState,
   reducers: {
-    setNewTodo(state: TodosCollection, action: PayloadAction<Todo>) {
-      const isField = Object.prototype.hasOwnProperty.call(state, action.payload.date);
+    setNewTodo(state: TodosCollectionStore, action: PayloadAction<Todo>) {
+      const collection = state.todosCollection;
+      const isField = Object.prototype.hasOwnProperty.call(collection, action.payload.date);
       if (!isField) {
-        state[action.payload.date] = [];
+        collection[action.payload.date] = [];
       }
-      state[action.payload.date].push(action.payload);
+      collection[action.payload.date].push(action.payload);
     },
-    deleteTodo(state: TodosCollection, action: PayloadAction<Todo>) {
+    deleteTodo(state: TodosCollectionStore, action: PayloadAction<Todo>) {
       const { id, date } = action.payload;
-      const index = state[date].findIndex((item) => item.id === id);
-      state[date].splice(index, 1);
+      const index = state.todosCollection[date].findIndex((item) => item.id === id);
+      state.todosCollection[date].splice(index, 1);
     },
-    updateTodo(state: TodosCollection, action: PayloadAction<Todo>) {
+    updateTodo(state: TodosCollectionStore, action: PayloadAction<Todo>) {
       const { id, date } = action.payload;
-      const index = state[date].findIndex((item) => item.id === id);
-      const findedTodo = state[date][index];
+      const index = state.todosCollection[date].findIndex((item) => item.id === id);
+      const findedTodo = state.todosCollection[date][index];
 
       findedTodo.title = action.payload.title;
       findedTodo.description = action.payload.description;
       findedTodo.done = action.payload.done;
+    },
+    setCollection(state: TodosCollectionStore, action: PayloadAction<TodosCollectionStore>) {
+      state.todosCollection = action.payload.todosCollection;
     },
   },
 });
