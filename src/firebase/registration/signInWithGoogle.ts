@@ -1,7 +1,9 @@
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
-import validateSignInWithGoogleError from "../utils/validationErrors/validateSignInWithGoogleError";
-import { auth, db } from "./firebase";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import createUserCollectionInFirebase from "./createUserCollectionInFirebase";
+import validateSignInWithGoogleError from "../../utils/validationErrors/validateSignInWithGoogleError";
+import addUserInfoToStore from "./addUserInfoToStore";
+import { auth, db } from "../firebase";
 
 const googleProvider = new GoogleAuthProvider();
 const signInWithGoogle = async (notifyCallback: (str: string) => void) => {
@@ -12,12 +14,8 @@ const signInWithGoogle = async (notifyCallback: (str: string) => void) => {
     const docs = await getDocs(q);
 
     if (docs.docs.length === 0) {
-      await addDoc(collection(db, "users"), {
-        uid: user.uid,
-        name: user.displayName,
-        authProvider: "google",
-        email: user.email,
-      });
+      await addUserInfoToStore(db, user, "google");
+      await createUserCollectionInFirebase(db, user);
     }
   } catch (e) {
     if (e instanceof Error) {
