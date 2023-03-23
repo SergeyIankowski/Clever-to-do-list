@@ -1,0 +1,19 @@
+.calendar {
+  display: flex;
+  gap: 10px;
+  width:fit-content;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.container {
+  overflow-x: auto;
+  width: 100%;
+}

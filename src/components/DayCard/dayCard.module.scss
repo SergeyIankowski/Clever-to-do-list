@@ -1,0 +1,60 @@
+$day-container-border-color: rgb(207, 207, 207);
+$day-container-bg-color: transparent;
+$day-container-bg-color-hover: black;
+$day-container-text-color-hover: white;
+$day-name-color: rgb(207, 207, 207);
+$marker-tasks-color: rgb(255, 220, 155);
+$marker-incompleted-tasks-color: rgb(255, 145, 0);
+
+.container {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  width: 150px;
+  height: 200px;
+  flex: 1 0 150px;
+
+  border: 2px solid $day-container-border-color;
+  background-color: $day-container-bg-color;
+  border-radius: 10%;
+
+  &:hover {
+    background-color: $day-container-bg-color-hover;
+    color: $day-container-text-color-hover;
+  }
+}
+.containerHover {
+  background-color: $day-container-bg-color-hover;
+  color: $day-container-text-color-hover;
+}
+.dayName {
+  color: $day-name-color;
+  font: normal bold 30px/120% "Roboto", sans-serif;
+}
+.monthDay {
+  font: normal bold 30px/120% "Roboto", sans-serif;
+}
+.monthName {
+  font: normal bold 15px/120% "Roboto", sans-serif;
+}
+.year {
+  font: normal bold 15px/120% "Roboto", sans-serif;
+}
+.markersContainer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.marker {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.markerTasks {
+  background-color: $marker-tasks-color;
+}
+.markerIncompletedTasks {
+  background-color: $marker-incompleted-tasks-color;
+}

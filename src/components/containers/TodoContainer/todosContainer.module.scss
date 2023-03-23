@@ -1,0 +1,24 @@
+.todoContainer {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-columns: 100%;
+  gap: 20px;
+  height: 92vh;
+}
+.addNewTodoButton {
+  justify-self: center;
+  width: 320px;
+  padding: 20px;
+  background-color: rgb(60, 176, 67);
+  border: 0;
+  border-radius: 20px;
+  font: normal normal 25px/120% "Roboto", sans-serif;
+  color: white;
+  &:hover {
+    color: white;
+    background-color: rgb(39, 139, 46);
+  }
+}
+.head {
+  font: normal bold 40px/120% "Roboto", sans-serif;
+}

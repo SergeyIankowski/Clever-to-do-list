@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.elementsGroup {
+  display: flex;
+  gap: 10px;
+}
+.button {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.title {
+  font: normal normal 25px/120% "Roboto", sans-serif;
+}
