@@ -9,28 +9,35 @@
   display: flex;
   align-items: center;
   gap: 10px;
-
   padding: 10px;
   font-size: 18px;
   border: none;
   color: #3cb043;
   background-color: #e4f8e4;
   border-radius: 5px;
+  cursor: pointer;
   &:hover {
-    background-color: grey;
+    color: white;
+    background-color: rgba($color: grey, $alpha: 0.7);
+  }
+  &:active {
+    background-color: #3cb043;
   }
 }
 .title {
-  font: normal normal 40px/120% 'Roboto', sans-serif;
-  border: 0;
   width: 100%;
+  border: 0;
+  border-radius: 15px;
+  background-color: #fceded;
+  font: normal normal 40px/120% "Roboto", sans-serif;
+  padding: 0 10px;
 }
 .titleContainer {
+  width: 100%;
+  height: 55px;
   display: grid;
   grid-template-columns: 100px 1fr 100px;
   justify-items: start;
-  width: 100%;
-  height: 55px;
 }
 .button {
   border: 0;
@@ -47,7 +54,7 @@
   width: 100%;
   height: 50vh;
   margin: 0;
-  font: normal normal 20px/120% 'Roboto', sans-serif;
+  font: normal normal 30px/120% "Roboto", sans-serif;
   &:focus {
     border: 0;
   }

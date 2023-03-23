@@ -1,13 +1,27 @@
+import { User } from "firebase/auth";
+import { FC, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
-import TodoContainer from "../../containers/TodoContainer/TodoContainer";
-import classes from "./todoBoard.module.scss";
+import TodosContainer from "../../components/containers/TodoContainer/TodosContainer";
+import Wrapper from "../../components/Wrapper/Wrapper";
+import Pages from "../../models/Pages";
 
-const TodoBoard = () => {
+type TodoBoardProps = {
+  user: User;
+  name: string;
+};
+
+const TodoBoard: FC<TodoBoardProps> = ({ user, name }) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user) navigate(Pages.login);
+  });
   return (
-    <div className={classes.todoContainer}>
-      <Header />
-      <TodoContainer />
-    </div>
+    <Wrapper>
+      <Header userName={name} />
+      <TodosContainer user={user} />
+    </Wrapper>
   );
 };
 
