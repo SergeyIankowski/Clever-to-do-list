@@ -1,15 +1,10 @@
-import { User } from "firebase/auth";
 import { FC, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import TodosContainer from "../../components/containers/TodoContainer/TodosContainer";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import Pages from "../../models/Pages";
-
-type TodoBoardProps = {
-  user: User;
-  name: string;
-};
+import TodoBoardProps from "./interface";
 
 const TodoBoard: FC<TodoBoardProps> = ({ user, name }) => {
   const navigate = useNavigate();

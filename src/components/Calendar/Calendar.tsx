@@ -1,14 +1,11 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import createDateWithOffset from "../../utils/createDateWithOffset";
 import DayCard from "../DayCard/DayCard";
 import classes from "./calendar.module.scss";
+import CalendarProps from "./interface";
 
-type CalendarProps = {
-  today: Date;
-};
-
-const Calendar = ({ today }: CalendarProps) => {
+const Calendar: FC<CalendarProps> = ({ today }) => {
   const generateArr = () => new Array(30).fill(1);
   const [days, setDays] = useState(generateArr());
 

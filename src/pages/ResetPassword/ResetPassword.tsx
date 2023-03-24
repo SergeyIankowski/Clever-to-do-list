@@ -1,18 +1,14 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import { User } from "firebase/auth";
 import { sendPasswordReset } from "../../firebase";
 import "react-toastify/dist/ReactToastify.css";
 import Pages from "../../models/Pages";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import classes from "./resetPassword.module.scss";
+import ResetPasswordProps from "./interface";
 
-type ResetPasswordProps = {
-  user: User;
-};
-
-const ResetPassword = ({ user }: ResetPasswordProps) => {
+const ResetPassword: FC<ResetPasswordProps> = ({ user }) => {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
 

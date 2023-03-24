@@ -1,18 +1,14 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import { User } from "firebase/auth";
 import { registerWithEmailAndPassword, signInWithGoogle } from "../../firebase";
 import "react-toastify/dist/ReactToastify.css";
 import Pages from "../../models/Pages";
 import classes from "./register.module.scss";
 import Wrapper from "../../components/Wrapper/Wrapper";
+import RegisterProps from "./interface";
 
-type RegisterProps = {
-  user: User;
-};
-
-const Register = ({ user }: RegisterProps) => {
+const Register: FC<RegisterProps> = ({ user }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");

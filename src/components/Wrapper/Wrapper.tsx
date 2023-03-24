@@ -1,11 +1,8 @@
-import { ReactNode } from "react";
+import { FC } from "react";
+import WrapperProps from "./interface";
 import classes from "./wrapper.module.scss";
 
-type WrapperProps = {
-  children: ReactNode;
-};
-
-const Wrapper = ({ children }: WrapperProps) => {
+const Wrapper: FC<WrapperProps> = ({ children }) => {
   return <div className={classes.wrapper}>{children}</div>;
 };
 

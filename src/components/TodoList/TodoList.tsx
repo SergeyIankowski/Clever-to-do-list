@@ -1,14 +1,9 @@
-import { User } from "firebase/auth";
-import Todo from "../../models/TodoInterface";
+import { FC } from "react";
 import TodoItem from "../TodoItem/TodoItem";
+import TodoListProps from "./interface";
 import classes from "./todoList.module.scss";
 
-type TodoListProps = {
-  todos: Todo[];
-  user: User;
-};
-
-const TodoList = ({ todos, user }: TodoListProps) => {
+const TodoList: FC<TodoListProps> = ({ todos, user }) => {
   const todosNodes = todos.map((todo) => <TodoItem todo={todo} user={user} />);
   return <section className={classes.container}>{todosNodes}</section>;
 };

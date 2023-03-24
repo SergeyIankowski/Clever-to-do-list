@@ -1,9 +1,7 @@
 import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
 import { AiFillDelete, AiOutlineEye } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import { User } from "firebase/auth";
-import { useContext } from "react";
-import Todo from "../../models/TodoInterface";
+import { FC, useContext } from "react";
 import classes from "./todoItem.module.scss";
 import Pages from "../../models/Pages";
 import { useAppActionCreators, useAppDispatch } from "../../hooks/redux";
@@ -11,16 +9,12 @@ import FirebaseContext from "../../models/firebaseContext";
 import ContextType from "../../models/Context.type";
 import updateUserTodo from "../../store/thunks/updateUserTodo";
 import deleteUserTodo from "../../store/thunks/deleteUserTodo";
-
-type TodoItemProps = {
-  todo: Todo;
-  user: User;
-};
+import TodoItemProps from "./interface";
 
 const ICON_SIZE = 25;
 const ICON_COLOR = "#3cb043";
 
-const TodoItem = ({ todo, user }: TodoItemProps) => {
+const TodoItem: FC<TodoItemProps> = ({ todo, user }) => {
   const { db } = useContext(FirebaseContext) as ContextType;
   const { changeCurrentTodo } = useAppActionCreators();
   const dispatch = useAppDispatch();

@@ -1,11 +1,9 @@
+import { FC } from "react";
 import { logOut } from "../../firebase";
 import classes from "./header.module.scss";
+import HeaderProps from "./interface";
 
-type HeaderProps = {
-  userName: string;
-};
-
-const Header = ({ userName }: HeaderProps) => {
+const Header: FC<HeaderProps> = ({ userName }) => {
   return (
     <header className={classes.header}>
       <p className={classes.logoutName}>{userName}</p>

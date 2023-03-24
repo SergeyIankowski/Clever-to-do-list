@@ -1,7 +1,6 @@
 import { collection } from "firebase/firestore";
-import { useContext, useEffect } from "react";
+import { FC, useContext, useEffect } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
-import { User } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Calendar from "../../Calendar/Calendar";
 import Spinner from "../../Spinner/Spinner";
@@ -13,12 +12,9 @@ import Pages from "../../../models/Pages";
 import classes from "./todosContainer.module.scss";
 import getDayBoardTitle from "../../../utils/getDayBoardTitle";
 import convertFirebaseDataToStoreData from "../../../utils/convertFirebaseDataToStoreData";
+import TodosContainerProps from "./interface";
 
-type TodosContainerProps = {
-  user: User;
-};
-
-const TodosContainer = ({ user }: TodosContainerProps) => {
+const TodosContainer: FC<TodosContainerProps> = ({ user }) => {
   const { db } = useContext(FirebaseContext) as ContextType;
   const { todosCollection, currentDate } = useAppStore();
   const { writeIdAndDate, setCollection } = useAppActionCreators();

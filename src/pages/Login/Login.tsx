@@ -1,18 +1,14 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import { User } from "firebase/auth";
 import { logInWithEmailAndPassword, signInWithGoogle } from "../../firebase";
 import "react-toastify/dist/ReactToastify.css";
 import Pages from "../../models/Pages";
 import classes from "./login.module.scss";
 import Wrapper from "../../components/Wrapper/Wrapper";
+import LoginProps from "./interface";
 
-type LoginProps = {
-  user: User;
-};
-
-const Login = ({ user }: LoginProps) => {
+const Login: FC<LoginProps> = ({ user }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();

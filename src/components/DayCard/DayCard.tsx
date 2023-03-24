@@ -1,15 +1,12 @@
+import { FC } from "react";
 import { useDispatch } from "react-redux";
 import { useAppActionCreators, useAppStore } from "../../hooks/redux";
 import createDateWithOffset from "../../utils/createDateWithOffset";
 import getMonthDayAndWeekDayName from "../../utils/getMonthDayAndWeekDayName";
 import classes from "./dayCard.module.scss";
+import DayCardProps from "./interface";
 
-type DayCardProps = {
-  today: Date;
-  dateOffset: number;
-};
-
-const DayCard = ({ today, dateOffset }: DayCardProps) => {
+const DayCard: FC<DayCardProps> = ({ today, dateOffset }) => {
   const finalDate = createDateWithOffset(today, dateOffset);
   const { monthDay, monthName, dayName, dateString, year } = getMonthDayAndWeekDayName(finalDate);
 
