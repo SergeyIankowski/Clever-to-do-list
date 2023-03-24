@@ -70,6 +70,7 @@ const ConcreteTodo = ({ user }: ConcreteTodoProps) => {
             value={titleValue}
             onChange={(e) => setTitle(e.target.value)}
             onBlur={(e) => dispatch(writeTitle(e.target.value))}
+            placeholder="Title"
             className={classes.title}
           />
           <button
@@ -91,6 +92,7 @@ const ConcreteTodo = ({ user }: ConcreteTodoProps) => {
           value={desc}
           onChange={(e) => setDesc(e.target.value)}
           onBlur={(e) => dispatch(writeDescription(e.target.value))}
+          placeholder="Description"
         />
         <div>
           <button type="button" className={classes.statusButton} onClick={completeButtonHandler}>

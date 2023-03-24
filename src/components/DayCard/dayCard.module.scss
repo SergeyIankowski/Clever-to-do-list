@@ -1,10 +1,4 @@
-$day-container-border-color: rgb(207, 207, 207);
-$day-container-bg-color: transparent;
-$day-container-bg-color-hover: black;
-$day-container-text-color-hover: white;
-$day-name-color: rgb(207, 207, 207);
-$marker-tasks-color: rgb(255, 220, 155);
-$marker-incompleted-tasks-color: rgb(255, 145, 0);
+@import '../../sass/abstract/variables';
 
 .container {
   display: inline-flex;
@@ -57,4 +51,31 @@ $marker-incompleted-tasks-color: rgb(255, 145, 0);
 }
 .markerIncompletedTasks {
   background-color: $marker-incompleted-tasks-color;
+}
+
+@media (max-width: $tablet) {
+  .dayName {
+    color: $day-name-color;
+    font: normal bold 20px/120% "Roboto", sans-serif;
+  }
+  .monthDay {
+    font: normal bold 20px/120% "Roboto", sans-serif;
+  }
+  .monthName {
+    font: normal bold 10px/120% "Roboto", sans-serif;
+  }
+  .year {
+    font: normal bold 10px/120% "Roboto", sans-serif;
+  }
+  .container {
+    width: 75px;
+    height: 100px;
+    flex: 1 0 75px;
+    gap: 3.5px;
+  }
+  .marker {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+  }
 }

@@ -1,9 +1,11 @@
+@import '../../../sass/abstract/variables';
 .todoContainer {
   display: grid;
   grid-template-rows: auto auto 1fr auto;
   grid-template-columns: 100%;
   gap: 20px;
   height: 92vh;
+  padding-bottom: 10px;
 }
 .addNewTodoButton {
   justify-self: center;
@@ -21,4 +23,16 @@
 }
 .head {
   font: normal bold 40px/120% "Roboto", sans-serif;
+}
+
+@media (max-width: $tablet) {
+  .addNewTodoButton {
+    font: normal normal 15px/120% "Roboto", sans-serif;
+    padding: 10px;
+    width: 220px;
+    border-radius: 10px;
+  }
+  .head {
+    font: normal bold 20px/120% "Roboto", sans-serif;
+  }
 }
