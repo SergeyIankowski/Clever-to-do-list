@@ -5,7 +5,7 @@ import { BiArrowBack } from "react-icons/bi";
 import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
 import { toast, ToastContainer } from "react-toastify";
 import { useAppActionCreators, useAppDispatch, useAppStore } from "../../hooks/redux";
-import Wrapper from "../../components/Wrapper/Wrapper";
+import Wrapper from "../../components/view/Wrapper/Wrapper";
 import Pages from "../../models/Pages";
 import classes from "./concreteTodo.module.scss";
 import FirebaseContext from "../../models/firebaseContext";

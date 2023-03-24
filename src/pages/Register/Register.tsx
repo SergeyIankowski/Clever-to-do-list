@@ -5,7 +5,7 @@ import { registerWithEmailAndPassword, signInWithGoogle } from "../../firebase";
 import "react-toastify/dist/ReactToastify.css";
 import Pages from "../../models/Pages";
 import classes from "./register.module.scss";
-import Wrapper from "../../components/Wrapper/Wrapper";
+import Wrapper from "../../components/view/Wrapper/Wrapper";
 import RegisterProps from "./interface";
 
 const Register: FC<RegisterProps> = ({ user }) => {

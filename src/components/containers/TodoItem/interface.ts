@@ -1,5 +1,5 @@
 import { User } from "firebase/auth";
-import Todo from "../../models/TodoInterface";
+import Todo from "../../../models/TodoInterface";
 
 interface TodoItemProps {
   todo: Todo;

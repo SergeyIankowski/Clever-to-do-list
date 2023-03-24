@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { useDispatch } from "react-redux";
-import { useAppActionCreators, useAppStore } from "../../hooks/redux";
-import createDateWithOffset from "../../utils/createDateWithOffset";
-import getMonthDayAndWeekDayName from "../../utils/getMonthDayAndWeekDayName";
+import { useAppActionCreators, useAppStore } from "../../../hooks/redux";
+import createDateWithOffset from "../../../utils/createDateWithOffset";
+import getMonthDayAndWeekDayName from "../../../utils/getMonthDayAndWeekDayName";
 import classes from "./dayCard.module.scss";
 import DayCardProps from "./interface";
 

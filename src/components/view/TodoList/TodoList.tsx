@@ -1,5 +1,5 @@
 import { FC } from "react";
-import TodoItem from "../TodoItem/TodoItem";
+import TodoItem from "../../containers/TodoItem/TodoItem";
 import TodoListProps from "./interface";
 import classes from "./todoList.module.scss";
 

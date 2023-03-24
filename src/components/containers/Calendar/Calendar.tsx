@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import createDateWithOffset from "../../utils/createDateWithOffset";
+import createDateWithOffset from "../../../utils/createDateWithOffset";
 import DayCard from "../DayCard/DayCard";
 import classes from "./calendar.module.scss";
 import CalendarProps from "./interface";

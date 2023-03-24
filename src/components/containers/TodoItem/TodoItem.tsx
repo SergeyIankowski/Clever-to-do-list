@@ -3,12 +3,12 @@ import { AiFillDelete, AiOutlineEye } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { FC, useContext } from "react";
 import classes from "./todoItem.module.scss";
-import Pages from "../../models/Pages";
-import { useAppActionCreators, useAppDispatch } from "../../hooks/redux";
-import FirebaseContext from "../../models/firebaseContext";
-import ContextType from "../../models/Context.type";
-import updateUserTodo from "../../store/thunks/updateUserTodo";
-import deleteUserTodo from "../../store/thunks/deleteUserTodo";
+import Pages from "../../../models/Pages";
+import { useAppActionCreators, useAppDispatch } from "../../../hooks/redux";
+import FirebaseContext from "../../../models/firebaseContext";
+import ContextType from "../../../models/Context.type";
+import updateUserTodo from "../../../store/thunks/updateUserTodo";
+import deleteUserTodo from "../../../store/thunks/deleteUserTodo";
 import TodoItemProps from "./interface";
 
 const ICON_SIZE = 25;

@@ -1,4 +1,4 @@
-import Wrapper from "../../components/Wrapper/Wrapper";
+import Wrapper from "../../components/view/Wrapper/Wrapper";
 import classes from "./page404.module.scss";
 
 const Page404 = () => {

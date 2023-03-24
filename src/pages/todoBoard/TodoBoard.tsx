@@ -1,8 +1,8 @@
 import { FC, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../../components/Header/Header";
+import Header from "../../components/view/Header/Header";
 import TodosContainer from "../../components/containers/TodoContainer/TodosContainer";
-import Wrapper from "../../components/Wrapper/Wrapper";
+import Wrapper from "../../components/view/Wrapper/Wrapper";
 import Pages from "../../models/Pages";
 import TodoBoardProps from "./interface";
 

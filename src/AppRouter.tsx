@@ -11,7 +11,7 @@ import FirebaseContext from "./models/firebaseContext";
 import Pages from "./models/Pages";
 import ConcreteTodo from "./pages/ConcreteTodo/ConcreteTodo";
 import fetchUserName from "./firebase/fetchUserName";
-import Spinner from "./components/Spinner/Spinner";
+import Spinner from "./components/view/Spinner/Spinner";
 
 const AppRouter = () => {
   const { auth } = useContext(FirebaseContext) as ContextType;

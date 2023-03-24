@@ -2,9 +2,8 @@ import { collection } from "firebase/firestore";
 import { FC, useContext, useEffect } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { useNavigate } from "react-router-dom";
-import Calendar from "../../Calendar/Calendar";
-import Spinner from "../../Spinner/Spinner";
-import TodoList from "../../TodoList/TodoList";
+import Calendar from "../Calendar/Calendar";
+import Spinner from "../../view/Spinner/Spinner";
 import { useAppActionCreators, useAppDispatch, useAppStore } from "../../../hooks/redux";
 import ContextType from "../../../models/Context.type";
 import FirebaseContext from "../../../models/firebaseContext";
@@ -13,6 +12,7 @@ import classes from "./todosContainer.module.scss";
 import getDayBoardTitle from "../../../utils/getDayBoardTitle";
 import convertFirebaseDataToStoreData from "../../../utils/convertFirebaseDataToStoreData";
 import TodosContainerProps from "./interface";
+import TodoList from "../../view/TodoList/TodoList";
 
 const TodosContainer: FC<TodosContainerProps> = ({ user }) => {
   const { db } = useContext(FirebaseContext) as ContextType;

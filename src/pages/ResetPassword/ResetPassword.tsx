@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { sendPasswordReset } from "../../firebase";
 import "react-toastify/dist/ReactToastify.css";
 import Pages from "../../models/Pages";
-import Wrapper from "../../components/Wrapper/Wrapper";
+import Wrapper from "../../components/view/Wrapper/Wrapper";
 import classes from "./resetPassword.module.scss";
 import ResetPasswordProps from "./interface";
 

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { logOut } from "../../firebase";
+import { logOut } from "../../../firebase";
 import classes from "./header.module.scss";
 import HeaderProps from "./interface";
 
