@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Route, Routes } from "react-router-dom";
 import Login from "./pages/Login/Login";
@@ -6,15 +6,14 @@ import Page404 from "./pages/Page404/Page404";
 import Register from "./pages/Register/Register";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import TodoBoard from "./pages/todoBoard/TodoBoard";
-import ContextType from "./models/Context.type";
-import FirebaseContext from "./models/firebaseContext";
 import Pages from "./models/Pages";
 import ConcreteTodo from "./pages/ConcreteTodo/ConcreteTodo";
 import fetchUserName from "./firebase/fetchUserName";
 import Spinner from "./components/view/Spinner/Spinner";
+import useFirebaseContext from "./hooks/firebase";
 
 const AppRouter = () => {
-  const { auth } = useContext(FirebaseContext) as ContextType;
+  const { auth } = useFirebaseContext();
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
 

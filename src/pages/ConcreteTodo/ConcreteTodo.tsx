@@ -1,4 +1,4 @@
-import { FC, useContext, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineCheck } from "react-icons/ai";
 import { BiArrowBack } from "react-icons/bi";
@@ -6,20 +6,18 @@ import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
 import { toast, ToastContainer } from "react-toastify";
 import { useAppActionCreators, useAppDispatch, useAppStore } from "../../hooks/redux";
 import Wrapper from "../../components/view/Wrapper/Wrapper";
-import Pages from "../../models/Pages";
-import classes from "./concreteTodo.module.scss";
-import FirebaseContext from "../../models/firebaseContext";
-import ContextType from "../../models/Context.type";
 import setNewUserTodo from "../../store/thunks/setNewUserTodo";
 import updateUserTodo from "../../store/thunks/updateUserTodo";
 import ConcreteTodoProps from "./interface";
+import useFirebaseContext from "../../hooks/firebase";
+import Pages from "../../models/Pages";
+import classes from "./concreteTodo.module.scss";
 
 const BUTTON_ICON_SIZE = 30;
 const CHECKBOX_SIZE = 40;
 
 const ConcreteTodo: FC<ConcreteTodoProps> = ({ user }) => {
-  const { db } = useContext(FirebaseContext) as ContextType;
-
+  const { db } = useFirebaseContext();
   const { currentTodo, isUpdated } = useAppStore();
   const { changeStatusDone, writeTitle, writeDescription, clearCurrentTodo } =
     useAppActionCreators();

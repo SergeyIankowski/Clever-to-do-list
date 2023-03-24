@@ -1,8 +1,8 @@
 import { auth, db } from "../firebase";
 
-type ContextType = {
+type FirebaseContextType = {
   db: typeof db;
   auth: typeof auth;
 };
 
-export default ContextType;
+export default FirebaseContextType;
