@@ -1,8 +1,11 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import getMonthDayAndWeekDayName from "../../utils/getMonthDayAndWeekDayName";
+
+const { dateString } = getMonthDayAndWeekDayName(new Date());
 
 const initialState: { currentDate: string } = {
-  currentDate: "",
+  currentDate: dateString,
 };
 
 export const currentDateSlice = createSlice({
