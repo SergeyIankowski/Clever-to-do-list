@@ -13,7 +13,7 @@ const registerWithEmailAndPassword = async (
   try {
     const response = await createUserWithEmailAndPassword(auth, email, password);
     const { user } = response;
-    await addUserInfoToStore(db, user, "local");
+    await addUserInfoToStore(db, user, "local", name);
     await createUserCollectionInFirebase(db, user);
   } catch (e) {
     if (e instanceof Error) {
