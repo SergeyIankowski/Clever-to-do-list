@@ -13,7 +13,7 @@ Clever-Todo-list with Calendar based on React, Redux/toolkit, Firebase.
 
 ```
 clever-todo-list (root of project)
-  └───src (folder with source code files)
+  └── src (folder with source code files)
       |─── components
       |     |─── containers (components with jsx layout and some logic)
       |     └─── view (components with only jsx layout)
@@ -31,8 +31,43 @@ clever-todo-list (root of project)
       |─── index.html
       └─── index.tsx
 ```
+5. **Database Structure** 
 
-5. **Functionality**:
+```
+type userObjDescription = {
+  email: example@mail.com,
+  authProvider: 'local' | google,
+  name: string,
+  uid: authentification.uid
+}
+
+type todoObj = {
+  id: string,
+  date: string ('March 23, 2023')
+  title: string,
+  description: string,
+  done: boolean
+}
+
+type userDayTodosCollection = {
+  arrayData: JSON with Array<todoObj>
+}
+
+```
+
+```
+Firestore Database
+  |── users (collection with description of each user)
+  |     |─── firestore-uid => userObjDescription
+  |     └─── firestore-uid => userObjDescription
+  |
+  |── userCollection (collection of todos for each user named with userObjDescription.uid)
+  |     |─── dateString ('March 23, 2023') => userDayTodosCollection
+  |     └─── dateString ('March 24, 2023') => userDayTodosCollection
+  └── userCollection
+
+```
+6. **Functionality**:
 
 - You can register or log in to your profile.
 - You can choose a day and create, change or delete todo item.
