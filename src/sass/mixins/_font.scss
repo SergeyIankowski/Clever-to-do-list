@@ -1,0 +1,3 @@
+@mixin font($font-size) {
+  font: normal bold #{$font-size}/120% "Roboto", sans-serif;
+}

@@ -1,4 +1,5 @@
 @import "../../../sass/abstract/variables";
+@import '../../../sass/mixins/font';
 
 .container {
   display: inline-flex;
@@ -25,16 +26,16 @@
 }
 .dayName {
   color: $day-name-color;
-  font: normal bold 30px/120% "Roboto", sans-serif;
+  @include font(30px);
 }
 .monthDay {
-  font: normal bold 30px/120% "Roboto", sans-serif;
+  @include font(30px);
 }
 .monthName {
-  font: normal bold 15px/120% "Roboto", sans-serif;
+  @include font(15px);
 }
 .year {
-  font: normal bold 15px/120% "Roboto", sans-serif;
+  @include font(15px);
 }
 .markersContainer {
   display: flex;
@@ -56,16 +57,16 @@
 @media (max-width: $tablet) {
   .dayName {
     color: $day-name-color;
-    font: normal bold 20px/120% "Roboto", sans-serif;
+    @include font(20px);
   }
   .monthDay {
-    font: normal bold 20px/120% "Roboto", sans-serif;
+    @include font(20px);
   }
   .monthName {
-    font: normal bold 10px/120% "Roboto", sans-serif;
+    @include font(10px);
   }
   .year {
-    font: normal bold 10px/120% "Roboto", sans-serif;
+    @include font(10px);
   }
   .container {
     width: 75px;

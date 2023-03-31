@@ -1,3 +1,4 @@
+@import '../../../sass/mixins/font';
 .header {
   display: flex;
   justify-content: flex-end;
@@ -13,5 +14,5 @@
   background-color: black;
 }
 .logoutName {
-  font: normal normal 20px/120% "Roboto", sans-serif;
+  @include font(20px);
 }

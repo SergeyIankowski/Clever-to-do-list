@@ -1,3 +1,4 @@
+@import '../../../sass/mixins/font';
 .container {
   display: flex;
   gap: 20px;
@@ -17,5 +18,5 @@
   align-items: center;
 }
 .title {
-  font: normal normal 25px/120% "Roboto", sans-serif;
+  @include font(25px);
 }
