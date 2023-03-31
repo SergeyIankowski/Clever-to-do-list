@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./AppRouter";
 import { auth, db } from "./firebase";
-import FirebaseContext from "./models/firebaseContext";
+import FirebaseContext from "./context/firebaseContext";
 import "./sass/main.scss";
 import { setupStore } from "./store/store";
 

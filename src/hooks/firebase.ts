@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import FirebaseContextType from "../models/FirebaseContext.type";
-import FirebaseContext from "../models/firebaseContext";
+import FirebaseContext from "../context/firebaseContext";
+import FirebaseContextType from "../context/FirebaseContext.type";
 
 const useFirebaseContext = () => {
-  const { auth, db } = useContext(FirebaseContext) as FirebaseContextType;
+  const { auth, db } = useContext(FirebaseContext!) as FirebaseContextType;
   return { auth, db };
 };
 
