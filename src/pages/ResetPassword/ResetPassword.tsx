@@ -25,7 +25,7 @@ const ResetPassword: FC<ResetPasswordProps> = ({ user }) => {
     <div className={classes.resetPassword}>
       <Wrapper>
         <ToastContainer />
-        <div className={classes.resetPasswordContainer}>
+        <form className={classes.resetPasswordContainer}>
           <input
             type="text"
             className={classes.resetPasswordTextBox}
@@ -39,7 +39,7 @@ const ResetPassword: FC<ResetPasswordProps> = ({ user }) => {
           <div className={classes.resetPasswordText}>
             Back to <Link to={Pages.login}>Login</Link> page
           </div>
-        </div>
+        </form>
       </Wrapper>
     </div>
   );

@@ -34,7 +34,7 @@ const Register: FC<RegisterProps> = ({ user }) => {
     <div className={classes.register}>
       <Wrapper>
         <ToastContainer />
-        <div className={classes.registerContainer}>
+        <form className={classes.registerContainer}>
           <input
             type="text"
             className={classes.registerTextBox}
@@ -71,7 +71,7 @@ const Register: FC<RegisterProps> = ({ user }) => {
           <div className={classes.registerText}>
             Have you already account? Go To <Link to={Pages.login}>LogIn</Link> page
           </div>
-        </div>
+        </form>
       </Wrapper>
     </div>
   );
