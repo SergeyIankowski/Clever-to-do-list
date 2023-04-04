@@ -1,9 +1,9 @@
 import { auth, db } from "./firebase";
 import logInWithEmailAndPassword from "./logInWithEmailAndPassword";
 import logOut from "./logOut";
-import registerWithEmailAndPassword from "./registerWithEmailAndPassword";
+import registerWithEmailAndPassword from "./registration/registerWithEmailAndPassword";
 import sendPasswordReset from "./sendPasswordReset";
-import signInWithGoogle from "./signInWithGoogle";
+import signInWithGoogle from "./registration/signInWithGoogle";
 
 export {
   auth,

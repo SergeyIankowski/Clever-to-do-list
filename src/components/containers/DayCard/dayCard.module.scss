@@ -1,0 +1,82 @@
+@import "../../../sass/abstract/variables";
+@import '../../../sass/mixins/font';
+
+.container {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  width: 150px;
+  height: 200px;
+  flex: 1 0 150px;
+
+  border: 2px solid $day-container-border-color;
+  background-color: $day-container-bg-color;
+  border-radius: 10%;
+
+  &:hover {
+    background-color: $day-container-bg-color-hover;
+    color: $day-container-text-color-hover;
+  }
+}
+.containerHover {
+  background-color: $day-container-bg-color-hover;
+  color: $day-container-text-color-hover;
+}
+.dayName {
+  color: $day-name-color;
+  @include font(30px);
+}
+.monthDay {
+  @include font(30px);
+}
+.monthName {
+  @include font(15px);
+}
+.year {
+  @include font(15px);
+}
+.markersContainer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.marker {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.markerTasks {
+  background-color: $marker-tasks-color;
+}
+.markerIncompletedTasks {
+  background-color: $marker-incompleted-tasks-color;
+}
+
+@media (max-width: $tablet) {
+  .dayName {
+    color: $day-name-color;
+    @include font(20px);
+  }
+  .monthDay {
+    @include font(20px);
+  }
+  .monthName {
+    @include font(10px);
+  }
+  .year {
+    @include font(10px);
+  }
+  .container {
+    width: 75px;
+    height: 100px;
+    flex: 1 0 75px;
+    gap: 3.5px;
+  }
+  .marker {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+  }
+}

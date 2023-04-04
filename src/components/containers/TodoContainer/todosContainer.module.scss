@@ -1,0 +1,42 @@
+@import "../../../sass/abstract/variables";
+@import '../../../sass/mixins/font';
+.todoContainer {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-columns: 100%;
+  gap: 20px;
+  height: 92vh;
+  padding-bottom: 10px;
+}
+.addNewTodoButton {
+  justify-self: center;
+  width: 320px;
+  padding: 20px;
+  background-color: rgb(60, 176, 67);
+  border: 0;
+  border-radius: 20px;
+  @include font(25px);
+  color: white;
+  &:hover {
+    color: white;
+    background-color: rgb(39, 139, 46);
+  }
+}
+.head {
+  @include font(40px);
+}
+
+@media (max-width: $tablet) {
+  .addNewTodoButton {
+    @include font(15px);
+    padding: 10px;
+    width: 220px;
+    border-radius: 10px;
+  }
+  .head {
+    @include font(20px);
+  }
+}
+
+@media (max-width: $mobile) {
+}

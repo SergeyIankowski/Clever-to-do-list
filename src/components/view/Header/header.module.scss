@@ -1,0 +1,18 @@
+@import '../../../sass/mixins/font';
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+  padding: 10px 0;
+}
+.logOutButton {
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  color: white;
+  background-color: black;
+}
+.logoutName {
+  @include font(20px);
+}

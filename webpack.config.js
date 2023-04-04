@@ -6,10 +6,10 @@ const { NetlifyPlugin } = require("netlify-webpack-plugin");
 
 const isDev = process.env.NODE_ENV == "development";
 
-const stylesHandler = MiniCssExtractPlugin.loader;
+const stylesHandler = isDev ? 'style-loader' : MiniCssExtractPlugin.loader;
 
 const config = {
-  devtool: isDev ? "inline-source-map" : undefined,
+  devtool: isDev ? "inline-source-map" : "source-map",
   entry: "./src/index.tsx",
   output: {
     filename: "[name].[contenthash].js",
@@ -48,7 +48,7 @@ const config = {
       {
         test: /\.s|[ac]ss$/i,
         use: [
-          isDev ? stylesHandler : MiniCssExtractPlugin.loader,
+          stylesHandler,
           {
             loader: "css-loader",
             options: {
@@ -70,8 +70,8 @@ const config = {
     ],
   },
   performance: {
-    maxAssetSize: 1000000,
-    maxEntrypointSize: 1000000,
+    maxAssetSize: 2000000,
+    maxEntrypointSize: 2000000,
   },
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", "..."],

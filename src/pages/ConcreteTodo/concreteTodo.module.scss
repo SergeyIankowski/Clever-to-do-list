@@ -1,0 +1,76 @@
+@import "../../sass/abstract/variables";
+@import '../../sass/mixins/font';
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+}
+.statusButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  color: #3cb043;
+  background-color: #e4f8e4;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    color: white;
+    background-color: rgba($color: grey, $alpha: 0.7);
+  }
+  &:active {
+    background-color: #3cb043;
+  }
+}
+.title {
+  width: 100%;
+  border: 0;
+  border-radius: 15px;
+  background-color: #fceded;
+  @include font(40px);
+  padding: 0 10px;
+}
+.titleContainer {
+  width: 100%;
+  height: 55px;
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  justify-items: start;
+}
+.button {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.description {
+  border: 0;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #fceded;
+  width: 100%;
+  height: 50vh;
+  margin: 0;
+  @include font(30px);
+  &:focus {
+    border: 0;
+  }
+}
+
+@media (max-width: $tablet) {
+  .titleContainer {
+    height: 25px;
+    grid-template-columns: 50px 1fr 50px;
+  }
+  .title {
+    @include font(20px);
+  }
+  .description {
+    @include font(15px);
+  }
+}
